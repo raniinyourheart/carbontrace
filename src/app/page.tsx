@@ -9,7 +9,7 @@ import {
   Brain,
   TrendingUp,
   ShieldCheck,
-  Zap,
+  
 } from "lucide-react";
 
 export default function Home() {
