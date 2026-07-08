@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CarbonTrace",
-  description: " Jejak Karbon UMKM",
+  description: "Kalkulator Jejak Karbon UMKM",
 };
 
 export default function RootLayout({
