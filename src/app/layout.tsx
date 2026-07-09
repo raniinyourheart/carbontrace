@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Kalkulator Jejak Karbon UMKM",
 };
 
-
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
