@@ -2,9 +2,21 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { 
+  Leaf, 
+  Eye, 
+  EyeOff,
+  Mail,
+  Lock,
+  CheckSquare,
+  Square,
+  Chrome,
+  Github
+} from "lucide-react";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-green-100 to-lime-100 px-6">
@@ -22,7 +34,7 @@ export default function LoginPage() {
         <div className="mb-8 text-center">
 
           <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 text-3xl shadow-lg">
-            🌿
+            <Leaf className="h-8 w-8 text-white" />
           </div>
 
           <h1 className="text-4xl font-bold text-emerald-700">
@@ -37,37 +49,51 @@ export default function LoginPage() {
 
         <form className="space-y-5">
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full rounded-xl border border-green-200 bg-white/70 px-4 py-3 outline-none transition-all focus:border-emerald-500 focus:ring-4 focus:ring-emerald-200"
-          />
+          <div className="relative">
+            <Mail className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="w-full rounded-xl border border-green-200 bg-white/70 px-4 py-3 pl-12 outline-none transition-all focus:border-emerald-500 focus:ring-4 focus:ring-emerald-200"
+            />
+          </div>
 
           <div className="relative">
-
+            <Lock className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-full rounded-xl border border-green-200 bg-white/70 px-4 py-3 pr-12 outline-none transition-all focus:border-emerald-500 focus:ring-4 focus:ring-emerald-200"
+              className="w-full rounded-xl border border-green-200 bg-white/70 px-4 py-3 pl-12 pr-12 outline-none transition-all focus:border-emerald-500 focus:ring-4 focus:ring-emerald-200"
             />
 
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-xl"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
             >
-              {showPassword ? "🙈" : "👁️"}
+              {showPassword ? (
+                <EyeOff className="h-5 w-5" />
+              ) : (
+                <Eye className="h-5 w-5" />
+              )}
             </button>
 
           </div>
 
           <div className="flex items-center justify-between text-sm">
 
-            <label className="flex items-center gap-2 text-gray-600">
-              <input
-                type="checkbox"
-                className="h-4 w-4 accent-emerald-600"
-              />
+            <label className="flex cursor-pointer items-center gap-2 text-gray-600">
+              <button
+                type="button"
+                onClick={() => setRememberMe(!rememberMe)}
+                className="flex items-center"
+              >
+                {rememberMe ? (
+                  <CheckSquare className="h-5 w-5 text-emerald-600" />
+                ) : (
+                  <Square className="h-5 w-5 text-gray-400" />
+                )}
+              </button>
               Remember me
             </label>
 
@@ -81,6 +107,7 @@ export default function LoginPage() {
           </div>
 
           <button
+            type="submit"
             className="w-full rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-300"
           >
             Login
@@ -96,11 +123,13 @@ export default function LoginPage() {
 
         <div className="grid grid-cols-2 gap-4">
 
-          <button className="rounded-xl border border-gray-300 bg-white py-3 transition hover:bg-gray-100 hover:shadow-md">
+          <button className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white py-3 transition hover:bg-gray-100 hover:shadow-md">
+            <Chrome className="h-5 w-5" />
             Google
           </button>
 
-          <button className="rounded-xl border border-gray-300 bg-white py-3 transition hover:bg-gray-100 hover:shadow-md">
+          <button className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white py-3 transition hover:bg-gray-100 hover:shadow-md">
+            <Github className="h-5 w-5" />
             GitHub
           </button>
 
